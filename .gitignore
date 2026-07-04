@@ -1,0 +1,24 @@
+# Generated outputs
+*.docx
+*.pptx
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+
+# Local scratch
+outputs/
+figure_work/
+preview/
+layout/
+qa/
+assets/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
