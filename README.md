@@ -29,23 +29,53 @@
 - Checking that every figure is referenced and explained
 - Preparing a related journal-club PPT outline or deck
 
-## Installation
+## Quickstart
 
-Copy the skill folder into your Codex skills directory:
+Clone this repository into your Codex skills directory with the folder name expected by the skill:
 
 ```text
-~/.codex/skills/wechat-literature-article/SKILL.md
+git clone https://github.com/Keyao-Wen/wechat-literature-article-skill.git ~/.codex/skills/wechat-literature-article
 ```
 
-On Windows, this is typically:
+On Windows PowerShell:
 
 ```text
-C:\Users\<you>\.codex\skills\wechat-literature-article\SKILL.md
+git clone https://github.com/Keyao-Wen/wechat-literature-article-skill.git "$env:USERPROFILE\.codex\skills\wechat-literature-article"
 ```
 
 Restart Codex or start a new conversation if needed.
 
+Then invoke the skill with:
+
+```text
+Use $wechat-literature-article to write a Chinese WeChat public-account article from this paper PDF.
+```
+
+## Repository Contents
+
+- `SKILL.md`: the main Codex skill workflow and quality requirements.
+- `examples/prompts.md`: ready-to-use prompts for article drafting, draft revision, and journal-club PPT preparation.
+- `agents/openai.yaml`: app-facing metadata and default prompt for implicit invocation.
+- `docs/demo.md`: a compact walkthrough of the expected input, workflow, and output shape.
+- `docs/quality-rubric.md`: a practical checklist for judging whether an output is ready for publication.
+
+## Quality Expectations
+
+A good output from this skill should be more than a fluent Chinese summary. It should:
+
+- preserve bibliographic facts, DOI, dates, units, and key numbers;
+- explain data sources, methods, calculations, validation, and uncertainty in concrete terms;
+- use consistent Chinese terminology for repeated technical concepts;
+- select figures for evidence, not decoration;
+- explain every inserted figure near the relevant result;
+- keep internal audit notes out of the publishable Word document;
+- render cleanly enough to copy into a WeChat public-account editor.
+
+For a more detailed scoring guide, see [docs/quality-rubric.md](docs/quality-rubric.md).
+
 ## Example Prompts
+
+The examples below are intentionally detailed. They tell Codex not only what to draft, but also how to audit numbers, handle figures, and keep working notes out of the final article.
 
 ```text
 Use $wechat-literature-article to write a Chinese WeChat public-account article from this paper PDF. Please include a rigorous but eye-catching title, paper metadata, a concise abstract translation, detailed methods, main results, explained figures, discussion, and conclusion. Output as Word with clean Chinese typography.
@@ -64,6 +94,8 @@ More examples are in [examples/prompts.md](examples/prompts.md).
 ## Scope
 
 This skill contains workflow instructions only. It does not include paper PDFs, copyrighted figures, article drafts, or generated Word/PPT files.
+
+When using copyrighted papers or figures, make sure you have the right to use or reproduce them in your publication context.
 
 ## License
 
