@@ -1,20 +1,88 @@
 # WeChat Literature Article Skill
 
+[![Release](https://img.shields.io/github/v/release/Keyao-Wen/wechat-literature-article-skill?label=release)](https://github.com/Keyao-Wen/wechat-literature-article-skill/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Codex Skill](https://img.shields.io/badge/Codex-skill-2F7D4A)](SKILL.md)
+
+Turn academic papers into rigorous Chinese WeChat public-account literature articles.
+
+`wechat-literature-article` is a Codex skill for research-oriented Chinese WeChat writing. It helps turn an academic paper, especially a Nature/Science-style paper, into a publishable article with accurate metadata, concrete methods, audited numbers, explained figures, clean Chinese typography, and Word-ready formatting.
+
 还在为导师布置的公众号文献介绍发愁？读完论文已经很累了，还要想标题、翻译摘要、讲清方法、裁主图、调 Word 格式、顺手把中文排版里的奇怪空格一个个揪出来？
 
 你可能需要 `wechat-literature-article`。
 
-这是一个面向中文科研公众号写作的 Codex skill，目标很朴素：把一篇英文学术论文，尤其是 Nature/Science 风格的研究论文，整理成一篇**能发、能读、方法讲得清楚、图也看得懂**的中文公众号文献推文。它不会把文章写成空泛的新闻稿，也不会只堆图和数字，而是会按照“论文信息、摘要、背景、数据与方法、结果、讨论、结论”的逻辑，把论文真正讲明白。
+## Why This Exists
 
-它特别适合这些场景：
+Most paper summaries fail in predictable ways: they sound fluent but skip methods, blur uncertainty, drop units, overuse English terms, or insert figures without explaining what they prove.
 
-- 导师或课题组要求写公众号文献介绍
-- 想把英文论文整理成中文推文初稿
-- 已经有草稿，但语言太口语、英文词太多、方法太空
-- 需要把论文主图和附图裁好并配上中文说明
-- 想顺便做一版组会文献分享 PPT
+This skill is designed around a stricter idea: **a scientific WeChat article should be readable, but also auditable**.
 
-`wechat-literature-article` is a Codex skill for turning academic papers into Chinese WeChat public-account literature articles. It is designed for research-oriented summaries of Nature/Science-style papers, where accuracy, method detail, figure selection, and WeChat-ready formatting matter.
+It asks Codex to preserve the evidence chain from paper source to public article:
+
+```text
+paper metadata -> source intake -> terminology list -> numeric audit -> figure selection -> Chinese article -> Word/WeChat QA
+```
+
+## 30-Second Demo
+
+Prompt:
+
+```text
+Use $wechat-literature-article to write a Chinese WeChat public-account article from this paper PDF.
+Use the standard research-reader length, explain the data and methods carefully, include the core figures, and output a Word document suitable for WeChat publishing.
+```
+
+Expected output shape:
+
+```text
+Title
+
+文章名称:
+期刊:
+发表时间:
+DOI:
+
+摘要
+核心发现
+研究背景
+数据与方法
+主要结果
+讨论
+结论与启示
+```
+
+Quality checks performed internally:
+
+- bibliographic metadata are checked against the paper or DOI page;
+- repeated technical terms are translated consistently;
+- key numbers keep units, uncertainty, denominators, and source locations;
+- figures are cropped with axes, legends, labels, and color bars visible;
+- every figure is explained near the result it supports;
+- internal audit notes stay out of the publishable Word document.
+
+See [examples/synthetic-demo/README.md](examples/synthetic-demo/README.md) for a copyright-safe demo based on a fictional mini-paper.
+
+## What Makes It Different
+
+| Common prompt | This skill |
+| --- | --- |
+| "Summarize this paper in Chinese" | Builds a publishable WeChat article with metadata, methods, results, discussion, and conclusion |
+| Often skips methods | Requires datasets, variables, model logic, validation, and uncertainty |
+| May copy numbers loosely | Maintains an internal numeric audit table |
+| Treats figures as decoration | Selects figures as evidence and checks figure-text correspondence |
+| Leaves mixed English/Chinese style | Enforces consistent terminology and clean Chinese typography |
+| Produces a draft only | Targets Word/WeChat-ready delivery |
+
+## Best For / Not For
+
+| Best for | Not for |
+| --- | --- |
+| Research-group WeChat paper introductions | One-click viral science news |
+| Graduate students preparing literature posts | Casual popular-science rewriting with loose accuracy |
+| Nature/Science-style research papers | Papers where you do not have access rights to figures or PDF content |
+| Method-heavy papers that need careful explanation | Replacing domain expert review before public release |
+| Draft revision, figure explanation, and Word cleanup | Inventing missing metadata, numbers, or claims |
 
 ## What It Helps With
 
@@ -51,13 +119,18 @@ Then invoke the skill with:
 Use $wechat-literature-article to write a Chinese WeChat public-account article from this paper PDF.
 ```
 
+More prompt templates are in [examples/prompts.md](examples/prompts.md).
+
 ## Repository Contents
 
 - `SKILL.md`: the main Codex skill workflow and quality requirements.
 - `examples/prompts.md`: ready-to-use prompts for article drafting, draft revision, and journal-club PPT preparation.
+- `examples/synthetic-demo/README.md`: a fictional, copyright-safe example showing the expected evidence chain.
 - `agents/openai.yaml`: app-facing metadata and default prompt for implicit invocation.
 - `docs/demo.md`: a compact walkthrough of the expected input, workflow, and output shape.
 - `docs/quality-rubric.md`: a practical checklist for judging whether an output is ready for publication.
+- `ROADMAP.md`: planned improvements.
+- `CHANGELOG.md`: release history.
 
 ## Quality Expectations
 
@@ -89,13 +162,22 @@ Use $wechat-literature-article to revise this draft. Make the language more acad
 Use $wechat-literature-article to prepare an English journal-club PPT for this paper. Keep one claim per slide and include the core figures.
 ```
 
-More examples are in [examples/prompts.md](examples/prompts.md).
-
 ## Scope
 
 This skill contains workflow instructions only. It does not include paper PDFs, copyrighted figures, article drafts, or generated Word/PPT files.
 
 When using copyrighted papers or figures, make sure you have the right to use or reproduce them in your publication context.
+
+## Contributing
+
+Good contributions include:
+
+- better prompts for specific paper types;
+- realistic demo cases based on open-access papers;
+- stronger QA checklists for figures, tables, and Word layout;
+- examples of common failure modes and how to fix them.
+
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) before opening an issue or pull request.
 
 ## License
 
