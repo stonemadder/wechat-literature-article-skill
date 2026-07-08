@@ -95,7 +95,8 @@ See [examples/synthetic-demo/README.md](examples/synthetic-demo/README.md) for a
 - Controlling audience depth and article length
 - Keeping terminology consistent and auditing key numbers
 - Checking that every figure is referenced and explained
-- Preparing a related journal-club PPT outline or deck
+
+This skill intentionally does **not** create presentations or slide decks. Use a presentation-focused workflow for that.
 
 ## Quickstart
 
@@ -124,7 +125,7 @@ More prompt templates are in [examples/prompts.md](examples/prompts.md).
 ## Repository Contents
 
 - `SKILL.md`: the main Codex skill workflow and quality requirements.
-- `examples/prompts.md`: ready-to-use prompts for article drafting, draft revision, and journal-club PPT preparation.
+- `examples/prompts.md`: ready-to-use prompts for article drafting, draft revision, and limited-source article work.
 - `examples/synthetic-demo/README.md`: a fictional, copyright-safe example showing the expected evidence chain.
 - `agents/openai.yaml`: app-facing metadata and default prompt for implicit invocation.
 - `docs/demo.md`: a compact walkthrough of the expected input, workflow, and output shape.
@@ -159,12 +160,12 @@ Use $wechat-literature-article to revise this draft. Make the language more acad
 ```
 
 ```text
-Use $wechat-literature-article to prepare an English journal-club PPT for this paper. Keep one claim per slide and include the core figures.
+Use $wechat-literature-article to draft a limited Chinese WeChat literature article from extracted paper text. Do not invent missing metadata, figures, sample sizes, uncertainty ranges, or DOI information.
 ```
 
 ## Scope
 
-This skill contains workflow instructions only. It does not include paper PDFs, copyrighted figures, article drafts, or generated Word/PPT files.
+This skill contains workflow instructions only. It does not include paper PDFs, copyrighted figures, article drafts, generated Word files, or slide decks.
 
 When using copyrighted papers or figures, make sure you have the right to use or reproduce them in your publication context.
 

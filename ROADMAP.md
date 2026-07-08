@@ -28,7 +28,6 @@ This roadmap is intentionally practical. The goal is to make `wechat-literature-
 
 ## Later Ideas
 
-- Provide a companion journal-club PPT workflow.
 - Provide example outputs in both concise and specialist versions.
 - Add multilingual support notes for English or bilingual public-account articles.
 - Collect community examples based on open-access papers.

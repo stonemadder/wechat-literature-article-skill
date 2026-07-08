@@ -32,10 +32,17 @@ Also propose a rigorous but attractive title, standardize Word fonts and font si
 Keep terminology consistent, audit key numbers internally, check figure-text correspondence, and separate the publishable draft from working notes.
 ```
 
-## Journal-Club PPT
+## Limited Source Or Extracted Text
 
 ```text
-Use $wechat-literature-article to prepare a journal-club PPT from this paper.
+Use $wechat-literature-article to draft a limited Chinese WeChat literature article from the extracted text below.
 
-The deck should include paper metadata, research gap, data and methods, main results, mechanism, critique/limitations, and discussion questions. Use one clear claim per slide and include the core figures.
+Important:
+- Do not invent missing metadata, figures, sample sizes, uncertainty ranges, or DOI information.
+- Clearly mark facts that are unavailable from the supplied text.
+- Keep major claims tied to the supplied sections.
+- If the methods or figures are not available, produce a cautious article draft and a short list of missing source materials needed for a publication-ready version.
+- Keep working notes separate from the final article.
+
+[Paste extracted paper text here.]
 ```

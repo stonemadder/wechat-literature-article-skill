@@ -127,6 +127,32 @@ Common failure modes:
 - inconsistent heading styles;
 - publishing internal notes by accident.
 
+## 8. Source Completeness and Evidence Mapping
+
+Checklist:
+
+- major result claims map to paper text, a figure, a table, a supplement, or a DOI/publisher metadata page;
+- missing methods, figures, uncertainty ranges, or metadata are explicitly tracked;
+- partial-source drafts are labelled as limited when only an abstract, notes, or extracted text are available;
+- unsupported statements are removed or softened;
+- working notes remain separate from the final article.
+
+Common failure modes:
+
+- drafting a full article from an abstract while implying the full paper was checked;
+- presenting unverified metadata as confirmed;
+- using a figure number without checking what the panel actually shows;
+- hiding missing source material from the user;
+- leaving unresolved TODOs in the final article.
+
+## 9. Scope Control
+
+Checklist:
+
+- the output is a WeChat literature article or article revision;
+- the task is not converted into a presentation, slide deck, broad literature review, or unrelated writing assignment;
+- presentation requests are routed to a presentation-focused workflow.
+
 ## Release Gate
 
-Before publishing, all seven sections should score at least 2. For research-group or public-account release, sections 1, 2, 4, and 6 should score 3.
+Before publishing, all nine sections should score at least 2. For research-group or public-account release, sections 1, 2, 4, 6, and 8 should score 3.
